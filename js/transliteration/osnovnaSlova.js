@@ -1,7 +1,7 @@
 // js/transliteration/osnovnaSlova.js
 
 // Fiksna tablica preslikavanja: latinično slovo → glagoljični znak
-const osnovnaMap = {
+export const osnovnaMap = {
   'A': '\u2C00', 'a': '\u2C30',   // Ⰰ ⰰ
   'B': '\u2C01', 'b': '\u2C31',   // Ⰱ ⰱ
   'V': '\u2C02', 'v': '\u2C32',   // Ⰲ ⰲ

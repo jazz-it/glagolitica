@@ -1,7 +1,7 @@
 // js/transliteration/diakritici.js
 
 // Mapiramo slova koja imaju poseban glagoljični ekvivalent
-const specialMap = {
+export const specialMap = {
   'Č': '\u2C1E',  // Ⱎ
   'č': '\u2C5E',  // ⱞ
   'Š': '\u2C1F',  // Ⱏ
@@ -15,7 +15,7 @@ const specialMap = {
   'đ': 'dž'
 };
 
-const specialPattern = new RegExp(Object.keys(specialMap).join('|'), 'g');
+export const specialPattern = new RegExp(Object.keys(specialMap).join('|'), 'g');
 
 export function transliterateDiakritici(text) {
   // 1. Zamijeni sve specijalne slučajeve

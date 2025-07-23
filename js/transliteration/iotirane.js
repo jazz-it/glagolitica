@@ -1,6 +1,6 @@
 // js/transliteration/iotirane.js
 
-const iotiraneMap = {
+export const iotiraneMap = {
   'JA': '\u2C21',  // Ⱑ
   'JE': '\u2C06',  // Ⰶ
   'JI': '\u2C09',  // Ⰹ
@@ -9,7 +9,7 @@ const iotiraneMap = {
 };
 
 // uhvati "JA" kad stoji na početku riječi ili nakon samoglasnika
-const re = /(\b|[AEIOUaeiou])J([AEIOUaeiou])/g;
+export const re = /(\b|[AEIOUaeiou])J([AEIOUaeiou])/g;
 
 export function transliterateIotirane(text) {
   return text.replace(re, (_, prefix, v) => {

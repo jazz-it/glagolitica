@@ -8,7 +8,7 @@
  * Ključevi su u *malim* slovima, bez diakritika,
  * vrijednosti su gotove glagoljične string‐zamjene.
  */
-const lexicalMap = {
+export const lexicalMap = {
   // Primjeri (popuniti stvarnim iznimkama prema potrebi):
   'djeca': 'ⰄⰹⰵⰜⰀ',    // d-j-e-c-a
   'dijete': 'ⰄⰹⰅⰕⰵ',  // d-i-j-e-t-e
@@ -19,7 +19,7 @@ const lexicalMap = {
 };
 
 // Kompajlirani RegExp za brzu detekciju cijelih riječi
-const pattern = new RegExp(
+export const pattern = new RegExp(
   '\\b(' + Object.keys(lexicalMap).join('|') + ')\\b',
   'gi'
 );

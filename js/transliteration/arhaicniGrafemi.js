@@ -6,7 +6,7 @@
  *   yat, psi, izhe, uk, fita, shta, kso
  */
 
-const arhaicniMap = {
+export const arhaicniMap = {
   // osnovni (malim slovima) i verzije velikih slova
   'yat':  '\u2C21',  // Ⱑ
   'YAT':  '\u2C21',
@@ -25,7 +25,7 @@ const arhaicniMap = {
 };
 
 // Dinamički RegExp koji hvata svaki od ključeva iz mape
-const pattern = new RegExp(Object.keys(arhaicniMap).join('|'), 'g');
+export const pattern = new RegExp(Object.keys(arhaicniMap).join('|'), 'g');
 
 /**
  * Zamijeni sve arhaične latinične grapheme u textu

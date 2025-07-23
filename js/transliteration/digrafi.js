@@ -2,7 +2,7 @@
 
 // Fiksna tablica preslikavanja najčešćih digrafa/trigrafa:
 // DŽ, LJ, NJ u svim uobičajenim kombinacijama velikih i malih slova
-const digrafMap = {
+export const digrafMap = {
   // DŽ
   'DŽ': '\u2C04\u2C06', // ⰄⰆ
   'Dž': '\u2C04\u2C36', // Ⰴⱶ
@@ -22,7 +22,7 @@ const digrafMap = {
   'nj': '\u2C4D\u2C49'  // ⰽⰹ
 }
 
-const pattern = new RegExp(
+export const pattern = new RegExp(
   Object.keys(digrafMap)
         // sortiranje po duljini kako bi 'DŽ' prije 'D' u regexu
         .sort((a, b) => b.length - a.length)
