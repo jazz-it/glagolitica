@@ -1,7 +1,7 @@
 // js/transliteration/diakritici.js
 
 // Mapiramo slova koja imaju poseban glagoljični ekvivalent
-export const specialMap = {
+export const diakriticiMap = {
   'Č': '\u2C1E',  // Ⱎ
   'č': '\u2C5E',  // ⱞ
   'Š': '\u2C1F',  // Ⱏ
@@ -15,15 +15,15 @@ export const specialMap = {
   'đ': 'dž'
 };
 
-export const specialPattern = new RegExp(Object.keys(specialMap).join('|'), 'g');
+export const specialPattern = new RegExp(Object.keys(diakriticiMap).join('|'), 'g');
 
 export function transliterateDiakritici(text) {
   // 1. Zamijeni sve specijalne slučajeve
-  text = text.replace(specialPattern, match => specialMap[match]);
+  text = text.replace(specialPattern, match => diakriticiMap[match]);
 
   // 2. Unicode normalizacija i uklanjanje ostalih akcenata
   //    Nakon ovoga ostaju samo osnovni latinični znakovi i već
-  //    mapirani glagoljični znakovi iz specialMap
+  //    mapirani glagoljični znakovi iz diakriticiMap
   text = text
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
