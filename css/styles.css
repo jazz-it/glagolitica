@@ -93,6 +93,9 @@ textarea {
   h1 {
     font-size: 1.3rem;
   }
+  textarea {
+    font-size: 1.3rem;
+  }
   .container {
     flex-direction: column;
   }
