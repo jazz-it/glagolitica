@@ -90,11 +90,14 @@ textarea {
 
 /* Responsive za uske ekrane */
 @media (max-width: 768px) {
+  h1 {
+    font-size: 1.3rem;
+  }
   .container {
     flex-direction: column;
   }
   #swap-btn {
     transform: rotate(90deg);
-    margin: 1rem 0;
+    margin: 0;
   }
 }
