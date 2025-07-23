@@ -98,7 +98,7 @@ textarea {
   }
   textarea {
     resize: none;
-    max-height: calc(50vh - 3rem);
+    max-height: calc(40vh - 3rem);
   }
   #swap-btn {
     transform: rotate(90deg);
