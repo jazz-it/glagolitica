@@ -43,12 +43,12 @@ function translate(text) {
  */
 function reverseTranslate(text) {
   let result = text;
-  result = reverseOsnovnaSlova(result);
-  result = reverseDigrafi(result);
-  result = reverseIotirane(result);
-  result = reverseDiakritici(result);
-  result = reverseArhaicniGrafemi(result);
   result = reverseLexicalExceptions(result);
+  result = reverseArhaicniGrafemi(result);
+  result = reverseDiakritici(result);
+  result = reverseIotirane(result);
+  result = reverseDigrafi(result);
+  result = reverseOsnovnaSlova(result);
   return result;
 }
 
