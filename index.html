@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="hr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Glagolitica Transliterator</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Glagolitica Translator</h1>
+    <button id="theme-toggle" aria-label="Promijeni temu">🌓</button>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <label for="input-text">Latinica</label>
+      <textarea id="input-text" placeholder="Upišite tekst..."></textarea>
+    </section>
+    <button id="swap-btn" aria-label="Zamijeni smjer">⇄</button>
+    <section class="panel">
+      <label for="output-text">Glagoljica</label>
+      <textarea id="output-text" readonly placeholder="Prijevod će se pojaviti ovdje..."></textarea>
+    </section>
+  </main>
+
+  <!-- Glavni skript -->
+  <script type="module" src="js/main.js" defer></script>
+</body>
+</html>

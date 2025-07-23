@@ -1,0 +1,100 @@
+:root {
+  --bg: #f5f5f5;
+  --fg: #333;
+  --panel-bg: #fff;
+  --accent: #4285f4;
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --fg: #eee;
+  --panel-bg: #1e1e1e;
+  --accent: #8ab4f8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--panel-bg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: stretch;
+}
+
+.panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+textarea {
+  flex: 1;
+  padding: 0.75rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: var(--panel-bg);
+  color: var(--fg);
+  font-size: 1rem;
+  resize: vertical;
+}
+
+#swap-btn {
+  align-self: center;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+#swap-btn:hover {
+  color: darken(var(--accent), 10%);
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: var(--accent);
+}
+
+/* Responsive za uske ekrane */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  #swap-btn {
+    transform: rotate(90deg);
+    margin: 1rem 0;
+  }
+}
