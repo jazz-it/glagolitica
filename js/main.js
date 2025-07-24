@@ -45,8 +45,8 @@ function reverseTranslate(text) {
   let result = text;
   result = reverseLexicalExceptions(result);
   result = reverseIotirane(result);
-  result = reverseDiakritici(result);
   result = reverseArhaicniGrafemi(result);
+  result = reverseDiakritici(result);
   result = reverseDigrafi(result);
   result = reverseOsnovnaSlova(result);
 
