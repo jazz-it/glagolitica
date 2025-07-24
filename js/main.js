@@ -22,7 +22,7 @@ const htmlRoot  = document.documentElement;
 
 // Flag that tracks current direction: false = latinica→glagoljica, true = glagoljica→latinica
 let isReverse = false;
-console.log('⚡ main.js loaded');
+console.log('⚡ AQQB');
 
 /**
  * Forward pipeline: Latinica → Glagoljica
@@ -49,6 +49,14 @@ function reverseTranslate(text) {
   result = reverseDigrafi(result);
   result = reverseOsnovnaSlova(result);
   result = reverseArhaicniGrafemi(result);
+
+  // → normalize to sentence-case: prvi znak velik, ostalo malo
+  result = result.toLowerCase();
+  result = result.replace(
+    /(^\s*[a-z])/,            // pronađi prvo slovo (nakon eventualnih space‐eva)
+    match => match.toUpperCase()
+  );
+
   return result;
 }
 
