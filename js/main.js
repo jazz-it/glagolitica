@@ -22,7 +22,7 @@ const htmlRoot  = document.documentElement;
 
 // Flag that tracks current direction: false = latinica→glagoljica, true = glagoljica→latinica
 let isReverse = false;
-console.log('⚡ ABCBC');
+console.log('⚡ ABVGD');
 
 /**
  * Forward pipeline: Latinica → Glagoljica

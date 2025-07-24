@@ -13,7 +13,7 @@ const reverseIotiraneMap = {
 };
 
 // Umjesto kompliciranih konteksta, zamijeni sve iotirane znakove odmah
-const anyIotiraniRe = /[ⰡⰆⰉⰎⰓ]/g;
+const anyIotiraniRe = /[ⰡⰉⰎⰓ]/g;
 
 export function reverseIotirane(text) {
   return text.replace(anyIotiraniRe, gla => 
