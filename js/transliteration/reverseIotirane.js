@@ -12,12 +12,16 @@ const reverseIotiraneMap = {
   '\u2C13': 'ju'  // Ⱃ
 };
 
-// Umjesto kompliciranih konteksta, zamijeni sve iotirane znakove odmah
-const anyIotiraniRe = /[ⰡⰉⰎⰓ]/g;
+// prvo zasebna riječ "Ⰶ" → "je", ostali iotirani znakovi odmah
+const standaloneJeRe = /(^|[\s.,!?;:'"()])Ⰶ(?=[\s.,!?;:'"()]|$)/g;
+const anyIotiraniRe  = /[ⰡⰉⰎⰓ]/g;
 
 export function reverseIotirane(text) {
-  return text.replace(anyIotiraniRe, gla => 
-    // Ⱑ,Ⰶ,… → ja, je, … prije svih arhaičnih
+  // 1) "Ⰶ" kao zasebna riječ postaje "je"
+  text = text.replace(standaloneJeRe, (_, pre) => pre + 'je');
+
+  // 2) ostali iotirani znakovi Ⱑ,Ⰹ,Ⰾ,Ⱃ → ja, ji, jo, ju
+  return text.replace(anyIotiraniRe, gla =>
     reverseIotiraneMap[gla] || gla
   );
 }
