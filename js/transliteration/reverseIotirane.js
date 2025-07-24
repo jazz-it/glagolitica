@@ -1,29 +1,37 @@
 // js/transliteration/reverseIotirane.js
 
 /**
- * Obrnuta mapa iotiranih slova:
- * Glagoljični znak → latinični par (JA, JE, JI, JO, JU)
+ * Obrnuta mapa iotiranih slova (Glagoljica → LATINICA)
+ * mapira svaki glagoljični znak na odgovarajući par:
+ *   Ⱑ→JA, Ⰶ→JE, Ⰹ→JI, Ⰾ→JO, Ⱃ→JU
  */
 const reverseIotiraneMap = {
-  '\u2C21': 'JA',  // Ⱑ → JA
-  '\u2C06': 'JE',  // Ⰶ → JE
-  '\u2C09': 'JI',  // Ⰹ → JI
-  '\u2C0E': 'JO',  // Ⰾ → JO
-  '\u2C13': 'JU'   // Ⱃ → JU
+  '\u2C21': 'JA',  // Ⱑ
+  '\u2C06': 'JE',  // Ⰶ
+  '\u2C09': 'JI',  // Ⰹ
+  '\u2C0E': 'JO',  // Ⰾ
+  '\u2C13': 'JU'   // Ⱃ
 };
 
-// Build regex pattern matching all iotirani glagoljični znakovi
-const pattern = new RegExp(
-  Object.keys(reverseIotiraneMap).join('|'),
-  'g'
-);
+/**
+ * Regex hvata:
+ * 1) prefix koji je ili
+ *    - granica riječi (\b), ili
+ *    - glagoljični samoglasnik (Ⰰ–Ⰵ, Ⰸ–Ⰿ, Ⱁ–Ⱆ, Ⱈ–ⱏ, ⱑ–ⱟ)
+ * 2) pa po redu iotirani znak
+ */
+const pattern = /(\b|[Ⰰ-\u2C5F])([ⰡⰆⰉⰎⰓ])/g;
 
 /**
- * Zamijeni sve glagoljične iotirane znakove
- * natrag u latinične parove (JA, JE, …).
+ * Zamijeni samo one iotirane znakove koji stoje na početku riječi
+ * ili iza glagoljičnog samoglasnika. Ostali Ⱑ,Ⰶ… puste nepromijenjene.
+ * 
+ * Rezultat se vraća u *lowercase* – na kraju ga rounded-casom kodiramo
+ * u main.js (sentence-case).
  */
 export function reverseIotirane(text) {
-  return text.replace(pattern, match =>
-    reverseIotiraneMap[match] || match
-  );
+  return text.replace(pattern, (_, prefix, gla) => {
+    const pair = reverseIotiraneMap[gla] || gla;
+    return prefix + pair.toLowerCase();
+  });
 }
