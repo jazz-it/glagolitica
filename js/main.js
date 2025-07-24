@@ -84,6 +84,9 @@ swapBtn.addEventListener('click', () => {
   [ fromLabel.textContent, toLabel.textContent ] =
     [ toLabel.textContent, fromLabel.textContent ];
 
+  // re-renderiraj odmah novu vrijednost kroz odgovarajući pipeline
+  render();
+
   inputEl.focus();
 });
 
