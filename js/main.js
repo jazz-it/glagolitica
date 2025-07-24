@@ -50,11 +50,11 @@ function reverseTranslate(text) {
   result = reverseOsnovnaSlova(result);
   result = reverseArhaicniGrafemi(result);
 
-  // → normalize to sentence-case: prvi znak velik, ostalo malo
+  // → normalize to sentence-case: prvo slovo nakon .!? ili početka teksta veliko, ostalo malo
   result = result.toLowerCase();
   result = result.replace(
-    /(^\s*[a-z])/,            // pronađi prvo slovo (nakon eventualnih space‐eva)
-    match => match.toUpperCase()
+    /(^|[\.!\?]\s+)([a-z])/g,    // grupiraš ili početak ili znak .!? + razmak, pa malo slovo
+    (_, prefix, char) => prefix + char.toUpperCase()
   );
 
   return result;
