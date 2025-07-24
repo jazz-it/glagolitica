@@ -12,18 +12,12 @@ const reverseIotiraneMap = {
   '\u2C13': 'ju'  // Ⱃ
 };
 
+// Umjesto kompliciranih konteksta, zamijeni sve iotirane znakove odmah
+const anyIotiraniRe = /[ⰡⰆⰉⰎⰓ]/g;
+
 export function reverseIotirane(text) {
-  // 1) iotirani znakovi na početku riječi (nakon razmaka/punkta ili početka teksta)
-  text = text.replace(
-    /(^|[\s.,!?;:\-–—()[\]"'])([ⰡⰆⰉⰎⰓ])/g,
-    (_, pre, gla) => pre + (reverseIotiraneMap[gla] || gla)
+  return text.replace(anyIotiraniRe, gla => 
+    // Ⱑ,Ⰶ,… → ja, je, … prije svih arhaičnih
+    reverseIotiraneMap[gla] || gla
   );
-
-  // 2) iotirani znakovi odmah nakon glagoljičnog samoglasnika
-  text = text.replace(
-    /([\u2C00-\u2C05\u2C08-\u2C0D\u2C11-\u2C16])([ⰡⰆⰉⰎⰓ])/g,
-    (_, vow, gla) => vow + (reverseIotiraneMap[gla] || gla)
-  );
-
-  return text;
 }
