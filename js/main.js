@@ -22,7 +22,7 @@ const htmlRoot  = document.documentElement;
 
 // Flag that tracks current direction: false = latinica→glagoljica, true = glagoljica→latinica
 let isReverse = false;
-console.log('⚡ BRBRG');
+console.log('⚡ AAAAA');
 
 /**
  * Forward pipeline: Latinica → Glagoljica
@@ -45,8 +45,8 @@ function reverseTranslate(text) {
   let result = text;
   result = reverseLexicalExceptions(result);
   result = reverseIotirane(result);
-  result = reverseArhaicniGrafemi(result);
   result = reverseDiakritici(result);
+  result = reverseArhaicniGrafemi(result);
   result = reverseDigrafi(result);
   result = reverseOsnovnaSlova(result);
 
