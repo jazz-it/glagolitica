@@ -109,11 +109,11 @@ document.querySelectorAll(".copy-btn").forEach(btn => {
     textarea.setSelectionRange(0, 99999); // za mobilne uređaje
     navigator.clipboard.writeText(textarea.value)
       .then(() => {
-        btn.textContent = "✔️";
+        btn.textContent = "✓";
         setTimeout(() => (btn.textContent = "⧉"), 800);
       })
       .catch(() => {
-        btn.textContent = "❌";
+        btn.textContent = "✗";
         setTimeout(() => (btn.textContent = "⧉"), 800);
       });
   });

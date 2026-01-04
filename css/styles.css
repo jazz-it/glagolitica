@@ -64,14 +64,14 @@ textarea {
 /* Copy gumb */
 .copy-btn {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 3px;
+  right: 9px;
   background: none;
   border: none;
-  font-size: 1.4rem;
+  font-size: 2rem;
   cursor: pointer;
   color: var(--accent);
-  opacity: 0.7;
+  opacity: 0.4;
   transition: opacity 0.2s;
 }
 
