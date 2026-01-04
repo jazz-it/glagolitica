@@ -15,12 +15,18 @@
   <main class="container">
     <section class="panel">
       <label for="input-text">Latinica</label>
-      <textarea id="input-text" placeholder="Upišite tekst..."></textarea>
+      <div class="textarea-wrapper">
+        <textarea id="input-text" placeholder="Upišite tekst..."></textarea>
+        <button class="copy-btn" data-target="input-text" aria-label="Kopiraj">⧉</button>
+      </div>
     </section>
     <button id="swap-btn" aria-label="Zamijeni smjer">⇄</button>
     <section class="panel">
       <label for="output-text">Glagoljica</label>
-      <textarea id="output-text" readonly placeholder="Prijevod će se pojaviti ovdje..."></textarea>
+      <div class="textarea-wrapper">
+        <textarea id="output-text" readonly placeholder="Prijevod će se pojaviti ovdje..."></textarea>
+        <button class="copy-btn" data-target="output-text" aria-label="Kopiraj">⧉</button>
+      </div>
     </section>
   </main>
 

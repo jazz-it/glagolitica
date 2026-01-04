@@ -50,6 +50,35 @@ body {
   flex-direction: column;
 }
 
+/* Wrapper za pozicioniranje copy ikone */
+.textarea-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+}
+
+textarea {
+  flex: 1;
+}
+
+/* Copy gumb */
+.copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--accent);
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.copy-btn:hover {
+  opacity: 1;
+}
+
 .panel label {
   margin-bottom: 0.5rem;
   font-weight: bold;

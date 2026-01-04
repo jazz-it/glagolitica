@@ -77,7 +77,7 @@ swapBtn.addEventListener('click', () => {
 
   // swap vrijednosti
   [ inputEl.value, outputEl.value ] = [ outputEl.value, inputEl.value ];
-  
+
   // swap labele
   const fromLabel = document.querySelector('label[for="input-text"]');
   const toLabel   = document.querySelector('label[for="output-text"]');
@@ -95,6 +95,28 @@ themeBtn.addEventListener('click', () => {
   htmlRoot.dataset.theme = htmlRoot.dataset.theme === 'light'
     ? 'dark'
     : 'light';
+});
+
+// COPY funkcionalnost
+document.querySelectorAll(".copy-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const targetId = btn.dataset.target;
+    const textarea = document.getElementById(targetId);
+
+    if (!textarea) return;
+
+    textarea.select();
+    textarea.setSelectionRange(0, 99999); // za mobilne uređaje
+    navigator.clipboard.writeText(textarea.value)
+      .then(() => {
+        btn.textContent = "✔️";
+        setTimeout(() => (btn.textContent = "⧉"), 800);
+      })
+      .catch(() => {
+        btn.textContent = "❌";
+        setTimeout(() => (btn.textContent = "⧉"), 800);
+      });
+  });
 });
 
 // Inicijalno renderiranje (kada se stranica učita)
